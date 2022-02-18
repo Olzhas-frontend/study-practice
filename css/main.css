@@ -337,6 +337,8 @@ template {
 	display: none;
 }
 
+/* Variables */
+
 :root {
 	--fz-base: 1.6rem;
 	--lh-base: 24px;
@@ -351,6 +353,8 @@ template {
 	--maxwidth-container: 1200px;
 	--container-gutter-x: 0 1.5rem;
 }
+
+/* Fonts */
 
 @font-face {
 	font-weight: 500;
@@ -391,6 +395,8 @@ template {
 	src: url('../fonts/BebasNeue/BebasNeueBold.woff') format('woff2');
 	font-display: swap;
 }
+
+/* Global */
 
 html {
 	box-sizing: border-box;
@@ -497,6 +503,8 @@ p {
 	}
 }
 
+/* Typography */
+
 h1,
 h2,
 h3,
@@ -505,7 +513,6 @@ h5,
 h6 {
 	margin: 0;
 	font-family: var(--ff-primary);
-	line-height: 50px;
 }
 
 .title {
@@ -515,39 +522,6 @@ h6 {
 	font-size: 4rem;
 	line-height: 50px;
 	text-transform: uppercase;
-}
-
-.header {
-	padding-top: 2.5rem;
-}
-
-.header__container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.menu {
-}
-
-.menu__list {
-	display: flex;
-	align-items: center;
-}
-
-.menu__item:not(:last-child) {
-	margin-right: 2rem;
-}
-
-.menu__link {
-	display: inline-block;
-	padding: 2.5rem 0;
-	text-transform: uppercase;
-
-	color: var(--primary-color);
-}
-
-.header__buttons {
 }
 
 .btn {
@@ -585,6 +559,93 @@ h6 {
 	border: 1px solid var(--secondary-color);
 	border-radius: 40px;
 }
+
+.btn--secondary:hover {
+	color: var(--white-color);
+
+	background-color: #3e74ff;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.08),
+		0px 0px 4px rgba(0, 0, 0, 0.14);
+	border-radius: 40px;
+}
+
+.btn--alt {
+	border: 1px solid transparent;
+	border-radius: 0;
+}
+
+.btn--alt:hover {
+	color: var(--secondary-color);
+
+	border: 1px solid var(--secondary-color);
+	border-radius: 40px;
+}
+
+.btn--underline {
+	color: var(--secondary-color);
+	text-decoration: underline var(--secondary-color);
+}
+
+.btn--underline:hover {
+	text-decoration: underline transparent;
+}
+
+.btn--underline svg {
+	width: 10px;
+	height: 10px;
+	margin-left: 0.5rem;
+
+	fill: var(--secondary-color);
+
+	transition: 0.3s margin ease-in-out;
+}
+
+.btn--underline:hover svg {
+	margin-left: 1rem;
+}
+
+/* Header */
+
+.header {
+	transition: 0.3s ease-in-out;
+}
+
+.header.sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+
+	width: 100%;
+
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+.header__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.menu__list {
+	display: flex;
+	align-items: center;
+}
+
+.menu__item:not(:last-child) {
+	margin-right: 2rem;
+}
+
+.menu__link {
+	display: inline-block;
+	padding: 2.5rem 0;
+	text-transform: uppercase;
+
+	color: var(--primary-color);
+}
+
+/* Intro */
 
 .intro {
 	padding: 15rem 0;
@@ -636,6 +697,8 @@ h6 {
 }
 
 .intro-slider .swiper-pagination-bullets {
+	width: auto;
+	left: calc(25% + 20px);
 	bottom: 43px;
 }
 
@@ -693,6 +756,8 @@ h6 {
 	margin-right: 5rem;
 }
 
+/* About */
+
 .about {
 	padding-bottom: 8rem;
 }
@@ -720,44 +785,11 @@ h6 {
 	color: rgba(55, 58, 74, 0.4);
 }
 
-.about__info-link {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.7rem 2.5rem;
-
-	font-family: var(--ff-secondary);
-	font-weight: 700;
-	font-size: 1.4rem;
-	line-height: 18px;
-	text-decoration-line: underline;
-	text-transform: uppercase;
-	color: var(--secondary-color);
-
-	transition: 0.3s ease-in-out;
+.about__info-btn {
+	padding: 0.8rem 0;
 }
 
-.about__info-link svg {
-	width: 10px;
-	height: 10px;
-	margin-left: 0.5rem;
-
-	fill: var(--secondary-color);
-
-	transition: fill ease-in-out;
-}
-
-.about__info-link:hover {
-	color: var(--white-color);
-
-	background-color: #3e74ff;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.08),
-		0px 0px 4px rgba(0, 0, 0, 0.14);
-	border-radius: 40px;
-}
-
-.about__info-link:hover svg {
-	opacity: 0;
-}
+/* Features */
 
 .features {
 	padding: 9.5rem 0;
@@ -814,7 +846,6 @@ h6 {
 	font-weight: 700;
 	font-size: 1.8rem;
 	text-transform: uppercase;
-	line-height: 24px;
 }
 
 .features__item-descr {
@@ -822,6 +853,8 @@ h6 {
 	line-height: 20px;
 	color: rgba(55, 58, 74, 0.4);
 }
+
+/* Price */
 
 .price {
 	padding: 10rem 0;
@@ -1009,6 +1042,8 @@ h6 {
 	line-height: 28px;
 }
 
+/* Company */
+
 .company {
 	padding: 12rem 0;
 }
@@ -1035,6 +1070,8 @@ h6 {
 
 	border-radius: 4px;
 }
+
+/* Consultation */
 
 .consultation {
 	padding-bottom: 13rem;
@@ -1157,8 +1194,7 @@ h6 {
 	text-decoration: underline;
 }
 
-.footer {
-}
+/* Footer */
 
 .footer__inner {
 	display: flex;
