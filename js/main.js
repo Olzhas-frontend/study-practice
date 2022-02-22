@@ -15,13 +15,8 @@ window.onscroll = function () {
 	headerScroll();
 };
 
-// Get the header
 const header = document.querySelector('header');
-
-// Get the offset position of the navbar
 const sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function headerScroll() {
 	if (window.pageYOffset > sticky) {
 		header.classList.add('sticky');
@@ -29,3 +24,26 @@ function headerScroll() {
 		header.classList.remove('sticky');
 	}
 }
+const body = document.body;
+const headerToggleBtn = document.querySelector('.header__toggle');
+const menu = document.querySelector('.header__menu');
+
+const disScroll = function disScroll() {
+	const pagePosition = window.scrollY;
+	document.body.classList.add('disable-scroll');
+};
+
+const enScroll = function enScroll() {
+	document.body.classList.remove('disable-scroll');
+};
+
+headerToggleBtn.addEventListener('click', () => {
+	headerToggleBtn.classList.toggle('is-active');
+	menu.classList.toggle('active');
+
+	if (headerToggleBtn.classList.contains('is-active')) {
+		disScroll();
+	} else {
+		enScroll();
+	}
+});
